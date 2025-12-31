@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StudioPanel } from './components/StudioPanel';
 import { TryOnPanel } from './components/TryOnPanel';
@@ -32,17 +33,17 @@ const App: React.FC = () => {
             <div className="relative w-10 h-10">
                 <div className="absolute inset-0 bg-lime-400 rounded-xl blur opacity-20 group-hover:opacity-40 transition-opacity"></div>
                 <div className="relative w-full h-full bg-gradient-to-br from-[#1a1a1a] to-black border border-white/10 rounded-xl flex items-center justify-center shadow-2xl">
-                    <span className="font-bold text-lime-400 text-xl brand-font">H</span>
+                    <span className="font-bold text-lime-400 text-xl brand-font">S</span>
                 </div>
             </div>
             <h1 className="text-2xl font-bold brand-font tracking-wide text-white">
-              HYPEDROP<span className="text-lime-400">.AI</span>
+              SPNK<span className="text-lime-400"> EDUCATION</span>
             </h1>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center p-1 bg-white/5 rounded-xl border border-white/5 backdrop-blur-md relative">
-            {/* Sliding Background Pill (Simplified logic for visual) */}
+            {/* Sliding Background Pill */}
             <div className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-lime-400 rounded-lg shadow-[0_0_15px_rgba(163,230,53,0.3)] transition-all duration-300 ease-out ${mode === 'studio' ? 'left-1' : 'left-[calc(50%)]'}`}></div>
 
             <button 
@@ -70,7 +71,7 @@ const App: React.FC = () => {
           <div className="flex items-center gap-4">
             <div className="hidden lg:flex items-center gap-2 text-[10px] font-mono text-lime-400/90 px-3 py-1.5 bg-lime-900/20 rounded-full border border-lime-500/20 shadow-[0_0_10px_rgba(163,230,53,0.1)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse"></span>
-                GEMINI 3 PRO ACTIVE
+                SPNK CORE ACTIVE
             </div>
           </div>
         </div>

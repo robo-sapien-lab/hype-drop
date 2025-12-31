@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { generateVirtualTryOn } from '../services/geminiService';
 import { ImageUploader } from './ImageUploader';
@@ -47,7 +48,7 @@ export const TryOnPanel: React.FC = () => {
     if (!resultImage) return;
     const link = document.createElement('a');
     link.href = `data:${mimeType};base64,${resultImage}`;
-    link.download = `hypedrop-tryon-${Date.now()}.png`;
+    link.download = `spnk-tryon-${Date.now()}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -137,7 +138,7 @@ export const TryOnPanel: React.FC = () => {
                     <div className="bg-gradient-to-br from-lime-900/10 to-black/40 p-8 rounded-[32px] border border-lime-400/20 text-center relative overflow-hidden group shadow-2xl">
                         <div className="absolute inset-0 bg-lime-400/5 blur-3xl group-hover:bg-lime-400/10 transition-colors"></div>
                         <p className="text-gray-300 text-sm mb-8 relative z-10 leading-relaxed font-light">
-                            Ready to merge assets. The AI will fit the garment onto the model while preserving lighting, depth, and identity.
+                            The SPNK Core Engine will fit the garment onto the model while preserving lighting, depth, and identity.
                         </p>
                         <Button 
                             variant="accent" 
@@ -175,7 +176,7 @@ export const TryOnPanel: React.FC = () => {
                                           <div className="absolute inset-0 border-t-2 border-lime-400 rounded-full animate-spin shadow-[0_0_20px_rgba(163,230,53,0.4)]"></div>
                                           <div className="absolute inset-4 border-r-2 border-white/40 rounded-full animate-spin reverse"></div>
                                       </div>
-                                      <p className="animate-pulse text-sm font-bold uppercase tracking-[0.3em] text-lime-400">Processing Mesh...</p>
+                                      <p className="animate-pulse text-sm font-bold uppercase tracking-[0.3em] text-lime-400">SPNK Core Processing...</p>
                                  </div>
                              ) : (
                                  <div className="flex flex-col items-center opacity-30">

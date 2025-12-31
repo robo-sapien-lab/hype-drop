@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from './Button';
 
@@ -24,7 +25,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, text, i
     if (!image || !mimeType) return;
     const link = document.createElement('a');
     link.href = `data:${mimeType};base64,${image}`;
-    link.download = 'hypedrop-asset.png';
+    link.download = 'spnk-studio-asset.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -32,7 +33,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, text, i
 
   const handleNativeShare = async () => {
     const shareData: ShareData = {
-        title: 'HypeDrop AI',
+        title: 'SPNK Education Studio',
         text: text,
     };
 
@@ -45,7 +46,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ isOpen, onClose, text, i
             }
             const byteArray = new Uint8Array(byteNumbers);
             const blob = new Blob([byteArray], { type: mimeType });
-            const file = new File([blob], 'hypedrop-look.png', { type: mimeType });
+            const file = new File([blob], 'spnk-education-look.png', { type: mimeType });
 
             if (navigator.canShare && navigator.canShare({ files: [file] })) {
                 shareData.files = [file];

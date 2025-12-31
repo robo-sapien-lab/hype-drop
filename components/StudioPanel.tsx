@@ -124,7 +124,7 @@ export const StudioPanel: React.FC = () => {
     try {
         await ensureKey();
     } catch (e) {
-        console.error("Key selection cancelled or failed", e);
+        console.error("Key selection failed", e);
         return;
     }
 
@@ -165,7 +165,7 @@ export const StudioPanel: React.FC = () => {
       
       // Handle Quota Errors
       if (errorStr.includes("429") || errorStr.includes("resource_exhausted") || errorStr.includes("quota")) {
-          setErrorMessage("Daily AI quota exceeded. Please try again later or check your plan.");
+          setErrorMessage("Daily Studio quota exceeded. Please try again later or check your plan.");
           setGen3DStatus(AppStatus.ERROR);
           return;
       }
@@ -201,7 +201,7 @@ export const StudioPanel: React.FC = () => {
         }
 
       setGen3DStatus(AppStatus.ERROR);
-      if (!errorMessage) setErrorMessage("Generation failed. Please check your API Key and connection.");
+      if (!errorMessage) setErrorMessage("Generation failed. Please check your credentials and connection.");
     }
   };
 
@@ -222,7 +222,7 @@ export const StudioPanel: React.FC = () => {
     try {
         await ensureKey();
     } catch (e) {
-        console.error("Key selection cancelled or failed", e);
+        console.error("Key selection failed", e);
         return;
     }
 
@@ -259,7 +259,7 @@ export const StudioPanel: React.FC = () => {
             }
         }
         setUpscaleStatus(AppStatus.ERROR);
-        if (!errorMessage) setErrorMessage("Upscale failed. Please ensure you have a valid API Key.");
+        if (!errorMessage) setErrorMessage("Upscale failed. Please ensure you have a valid Studio Key.");
     }
   };
 
@@ -284,7 +284,7 @@ export const StudioPanel: React.FC = () => {
     if (!currentImage) return;
     const link = document.createElement('a');
     link.href = `data:${mimeType};base64,${currentImage}`;
-    link.download = `hypedrop-edit-${Date.now()}.png`;
+    link.download = `spnk-edit-${Date.now()}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -297,7 +297,7 @@ export const StudioPanel: React.FC = () => {
   };
 
   const getShareText = () => {
-    if (!adCopy) return 'Check out this drip created with HypeDrop AI.';
+    if (!adCopy) return 'Check out this design created in the SPNK Education Studio.';
     const currentStyle = adCopy[activeTab];
     return `${currentStyle.headline}\n\n${currentStyle.body}\n\n${currentStyle.hashtags.join(' ')}`;
   };
@@ -353,8 +353,8 @@ export const StudioPanel: React.FC = () => {
       return (
         <div className="max-w-xl mx-auto mt-12 animate-fade-in relative z-10">
             <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold mb-4 brand-font uppercase text-white tracking-tight drop-shadow-2xl">Studio Mode</h2>
-              <p className="text-gray-400 text-lg font-light">Upload your product photos. Get instant 3D assets and viral ad copy.</p>
+              <h2 className="text-5xl font-bold mb-4 brand-font uppercase text-white tracking-tight drop-shadow-2xl">SPNK Studio</h2>
+              <p className="text-gray-400 text-lg font-light">Upload your product photos. Get instant 3D assets and premium ad copy.</p>
             </div>
             <ImageUploader onImageUpload={handleImageUpload} />
           </div>
@@ -408,8 +408,8 @@ export const StudioPanel: React.FC = () => {
                         <div className="flex items-start gap-3">
                             <svg className="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                             <div>
-                                <p className="font-bold mb-1 uppercase tracking-wide text-red-400">Generation Failed</p>
-                                <p className="opacity-80 leading-relaxed">{errorMessage || "An unexpected error occurred. Please check your API key."}</p>
+                                <p className="font-bold mb-1 uppercase tracking-wide text-red-400">Studio Error</p>
+                                <p className="opacity-80 leading-relaxed">{errorMessage || "An unexpected error occurred. Please check your credentials."}</p>
                             </div>
                             <button onClick={() => { setGen3DStatus(AppStatus.IDLE); setUpscaleStatus(AppStatus.IDLE); setErrorMessage(null); }} className="ml-auto text-red-400 hover:text-white">
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -436,7 +436,7 @@ export const StudioPanel: React.FC = () => {
                  <div>
                     <h4 className="text-sm font-bold text-white uppercase flex items-center gap-2 mb-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-lime-400 shadow-[0_0_10px_#a3e635]"></span>
-                        AI Upscale
+                        SPNK Enhancer
                     </h4>
                     <p className="text-[10px] text-gray-400 uppercase tracking-wide font-medium">Enhance resolution & detail</p>
                  </div>
@@ -558,7 +558,7 @@ export const StudioPanel: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* NEW: Fit Selector */}
+                    {/* Fit Selector */}
                     <div>
                         <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 pl-1">Fit & Drape Physics</h4>
                         <div className="flex bg-black/40 p-1 rounded-xl border border-white/5">
@@ -595,7 +595,7 @@ export const StudioPanel: React.FC = () => {
                             </div>
                         )}
 
-                        {/* Custom Color Swatches (New Grid Implementation) */}
+                        {/* Custom Color Swatches */}
                         {bgMode === 'custom_color' && (
                             <div className="animate-fade-in bg-black/40 p-4 rounded-xl border border-white/5">
                                 <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 block">Select Studio Backdrop</label>
@@ -724,7 +724,7 @@ export const StudioPanel: React.FC = () => {
                 </div>
 
                 <Button variant="accent" onClick={handleGenerate3D} isLoading={gen3DStatus === AppStatus.LOADING} className="w-full py-5 text-base shadow-[0_0_30px_rgba(163,230,53,0.2)] rounded-2xl">
-                    {modelMode === 'human' ? `Generate ${modelGender.charAt(0).toUpperCase() + modelGender.slice(1)} Model Shoot` : 'Generate 3D Ghost Asset'}
+                    {modelMode === 'human' ? `Generate Model Shoot` : 'Generate 3D Asset'}
                 </Button>
               </div>
             </div>
@@ -745,7 +745,7 @@ export const StudioPanel: React.FC = () => {
                 {!adCopy ? (
                   <div className="flex-1 flex flex-col items-center justify-center p-8 border border-dashed border-white/10 rounded-3xl bg-black/20 group hover:border-white/20 transition-colors">
                     <p className="text-gray-500 text-sm text-center mb-6 max-w-[200px] leading-relaxed">Ready to drop? Generate copy based on the current look of your product.</p>
-                    <Button variant="secondary" onClick={handleGenerateAdCopy} isLoading={adStatus === AppStatus.LOADING} className="w-full rounded-2xl bg-black/40 border-white/10 hover:bg-white/10">Generate Hype Copy</Button>
+                    <Button variant="secondary" onClick={handleGenerateAdCopy} isLoading={adStatus === AppStatus.LOADING} className="w-full rounded-2xl bg-black/40 border-white/10 hover:bg-white/10">Generate Ad Copy</Button>
                   </div>
                 ) : (
                   <div className="flex-1 flex flex-col gap-5 animate-fade-in">
